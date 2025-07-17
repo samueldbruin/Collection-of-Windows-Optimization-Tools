@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection of Windows (Optimization) Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header.light-mode {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: #00aaff;
+        }
+
+        nav button {
+            padding: 8px 16px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #0088cc;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #00aaff, #007bff);
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .tool-card {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .tool-card.light-mode {
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .tool-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00aaff;
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #00aaff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tool-card a:hover {
+            background-color: #0088cc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            margin-top: 2rem;
+        }
+
+        footer.light-mode {
+            background-color: #fff;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1>Collection of Windows (Optimization) Tools</h1>
+            <button onclick="toggleTheme()">Switch Theme</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <p>
+                Collection of useful free tools and programs for Windows compiled by Samuel.<br>
+                A mix of must-haves and niche tools for a better Windows experience.<br>
+                ⚠️ <strong>DISCLAIMER</strong><br>
+                <span style="font-size: 0.9em;">Use these tools and programs at your own risk. Some can damage your system if you use them incorrectly. Always read carefully what something does and do your own research if it is not clear.</span>
+            </p>
+        </div>
+    </section>
+
+    
+    <div class="container" style="margin-top: 2rem; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <div>
+            <label for="filter" style="margin-right: 10px;">Filter by category:</label>
+            <select id="filter" onchange="filterTools()" style="padding: 8px; border-radius: 5px;">
+                <option value="all">Everything</option>
+                <option value="debloat">Debloat / Tweaks</option>
+                <option value="installation">Installation</option>
+                <option value="recovery">Recovery</option>
+                <option value="registry">Registry</option>
+                <option value="usb">USB / Boot</option>
+                <option value="quality-of-live">Quality of Life</option>
+                <option value="uninstaller">Uninstaller</option>
+                <option value="optimization">Optimization</option>
+                <option value="automation">Automation</option>
+                <option value="storage">Storage</option>
+                <option value="antimalware">Anti Malware</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" id="searchBox" placeholder="Search tools..." style="padding: 8px; width: 250px; border-radius: 5px;">
+        </div>
+    </div>
+
+    <section class="tools-grid container">
+        <div class="tool-card" data-category="debloat optimization">
+            <h3>WinUtil</h3>
+            <p>A powerful PowerShell tool from Chris Titus Tech for installing programs, debloating, tweaks and updates for Windows.</p>
+            <a href="https://github.com/ChrisTitusTech/winutil" target="_blank">Visit WinUtil</a>
+        </div>
+        <div class="tool-card" data-category="uninstaller debloat">
+            <h3>Revo Uninstaller</h3>
+            <p>A thorough uninstaller that completely removes programs including residual files. Also useful for managing startup items.</p>
+            <a href="https://www.revouninstaller.com/nl/revo-uninstaller-free-download/" target="_blank">Visit Revo Uninstaller</a>
+        </div>
+        <div class="tool-card" data-category="registry">
+            <h3>Revo Registry Cleaner Pro</h3>
+            <p>A powerful tool to safely and effectively clean the Windows registry.</p>
+            <a href="https://www.revouninstaller.com/nl/products/revo-registry-cleaner-pro/" target="_blank">Visit Registry Cleaner</a>
+        </div>
+        <div class="tool-card" data-category="installation automation">
+            <h3>Ninite</h3>
+            <p>A tool to quickly install multiple programs at once without nonsense.</p>
+            <a href="https://ninite.com/" target="_blank">Visit Ninite</a>
+        </div>
+        <div class="tool-card" data-category="recovery">
+            <h3>Recuva</h3>
+            <p>Recover accidentally deleted files on your storage media.</p>
+            <a href="https://www.ccleaner.com/recuva/download" target="_blank">Visit Recuva</a>
+        </div>
+        <div class="tool-card" data-category="quality-of-live">
+            <h3>Burnt Sushi</h3>
+            <p>A Spotify AdBlocker for Windows via DLL injection and feature-hooking.</p>
+            <a href="https://github.com/OpenByteDev/burnt-sushi/tree/master" target="_blank">Visit Burnt Sushi</a>
+        </div>
+        <div class="tool-card" data-category="optimization">
+            <h3>Process Lasso</h3>
+            <p>Optimize CPU utilization and system performance with smart process management.</p>
+            <a href="https://bitsum.com/download-process-lasso/" target="_blank">Visit Process Lasso</a>
+        </div>
+        <div class="tool-card" data-category="usb">
+            <h3>Rufus</h3>
+            <p>Easily create bootable USB sticks for OS installations.</p>
+            <a href="https://rufus.ie/en/" target="_blank">Visit Rufus</a>
+        </div>
+        <div class="tool-card" data-category="automation">
+            <h3>AutoHotkey</h3>
+            <p>AutoHotkey is a free, open-source scripting language for Windows that allows users to easily create small to complex scripts.</p>
+            <a href="https://www.autohotkey.com/" target="_blank">Visit AutoHotkey</a>
+        </div>
+        <div class="tool-card" data-category="storage">
+            <h3>TreeSize</h3>
+            <p>Scan your volumes in seconds and see the size of all folders including all subfolders and break it down to file level.</p>
+            <a href="https://www.jam-software.com/treesize_free" target="_blank">Visit TreeSize</a>
+        </div>
+        <div class="tool-card" data-category="usb">
+            <h3>Validrive</h3>
+            <p>Quickly spot-check any USB mass storage drive for fraudulent deliberately missing storage.</p>
+            <a href="https://www.grc.com/validrive.htm" target="_blank">Visit Validrive</a>
+        </div>
+        <div class="tool-card" data-category="antimalware">
+            <h3>MSRT (Malicious Software Removal Tool)</h3>
+            <p>MSRT finds and removes threats and undoes the changes made by those threats.</p>
+            <a href="https://www.microsoft.com/nl-nl/download/details.aspx?id=9905" target="_blank">Visit MSRT</a>
+        </div>
+        <div class="tool-card" data-category="optimization">
+            <h3>TCP Optimizer</h3>
+            <p>MSRT TCP Optimizer is a program that provides an intuitive interface for tuning and optimizing your Internet connection.</p>
+            <a href="https://www.speedguide.net/downloads.php"_blank">Visit TCP Optimizer</a>
+        </div>
+        <div class="tool-card" data-category="storage ">
+            <h3>Temp/Prefetch</h3>
+            <p>A reminder to clear the contents of these folders ones in a while. (%temp% and C:\Windows\Prefetch)</p>
+            <a href="https://www.wikihow.com/Delete-Temporary-Files-and-Delete-Prefetch-Files-from-Your-Computer"_blank">How to do:</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Collection of Windows Tools by Samuël.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            document.querySelector('header').classList.toggle('light-mode');
+            document.querySelectorAll('.tool-card').forEach(card => card.classList.toggle('light-mode'));
+            document.querySelector('footer').classList.toggle('light-mode');
+        }
+
+        
+        document.getElementById('searchBox').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            document.querySelectorAll('.tool-card').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        function filterTools() {
+    const filter = document.getElementById("filter").value;
+    document.querySelectorAll(".tool-card").forEach(card => {
+        const categories = card.getAttribute("data-category").split(" ");
+        card.style.display = (filter === "all" || categories.includes(filter)) ? "block" : "none";
+    });
+}
+    </script>
+</body>
+</html>
