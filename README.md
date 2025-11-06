@@ -13,7 +13,17 @@ A curated collection of free Windows tools for optimization, debloating, automat
 
 # Categories 
 
-Debloat / Tweaks, Installation, Recovery, Registry, USB / Boot, Quality of Life, Uninstaller, Optimization, Automation, Storage, Anti-Malware
+-  Debloat/Tweaks
+-  Installation
+-  Recovery
+-  Registry
+-  USB/Boot
+-  Quality of Life
+-  Uninstaller
+-  Optimization
+-  Automation
+-  Storage
+-  Anti-Malware
 
 # Usage 
 
