@@ -1,4 +1,3 @@
----
 # Windows Optimization Tools
 
 A curated collection of free Windows tools for optimization, debloating, automation, recovery, and more. Use at your own risk.
@@ -35,4 +34,3 @@ A curated collection of free Windows tools for optimization, debloating, automat
 
 * Use tools at your own risk — read what they do first.
 * An LLM assisted in writing and debugging the HTML, CSS, and JavaScript.
----
