@@ -1,34 +1,30 @@
-Windows Optimization Tools Collection
-Overview
+---
 
-A curated collection of free Windows tools for optimization, debloating, automation, recovery, and more. Use at your own risk — some tools can affect your system if misused.
+# Windows Optimization Tools
 
-Features
+A curated collection of free Windows tools for optimization, debloating, automation, recovery, and more. Use at your own risk.
 
-Dark/Light theme toggle
+## Features ##
 
-Search and filter tools by category
+* Dark/Light theme toggle
+* Search and filter tools by category
+* Responsive grid layout
+* Each tool shows name, description, and link
 
-Responsive grid layout
-
-Each tool includes name, description, and link
-
-Categories
+## Categories ##
 
 Debloat / Tweaks, Installation, Recovery, Registry, USB / Boot, Quality of Life, Uninstaller, Optimization, Automation, Storage, Anti-Malware
 
-Usage
+## Usage ##
 
-Open index.html in a browser
+1. Open `index.html` in a browser
+2. Search or filter tools by category
+3. Click a tool to visit its official site
+4. Toggle themes with “Switch Theme”
 
-Use the search bar or category filter to find tools
+## Disclaimer ##
 
-Click a tool to visit its official site
+* Use tools at your own risk — read what they do first.
+* An LLM assisted in writing and debugging the HTML, CSS, and JavaScript.
 
-Switch themes using the “Switch Theme” button
-
-Disclaimer
-
-Use the tools at your own risk. Always read and understand what a tool does before using it.
-
-A language model (LLM) assisted in writing and debugging the HTML, CSS, and JavaScript for this project.
+---
